@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  api:
+  images-service:
     image: ricardoyalico/glossy-images:v1.2.0   # 👈 versión fija
     container_name: glossy-images
     restart: unless-stopped
