@@ -51,7 +51,7 @@ services:
       - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
 
     depends_on:
-      - api
+      - images-service
 
     networks:
       - glossy-net
