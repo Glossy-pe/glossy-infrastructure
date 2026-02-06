@@ -51,8 +51,8 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
     # ❗ solo si necesitas acceso externo
-    # ports:
-    #   - "5432:5432"
+    ports:
+      - "5432:5432"
 
     networks:
       - glossy-net
