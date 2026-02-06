@@ -18,6 +18,21 @@ services:
     networks:
       - glossy-net
 
+  backend-service:
+    image: glossy-backend:v1.0.2
+    container_name: glossy-backend
+    restart: unless-stopped
+
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/glossy-db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+
   db:
     image: postgres:15
     container_name: glossy-db
