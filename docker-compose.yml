@@ -19,7 +19,7 @@ services:
       - glossy-net
 
   backend-service:
-    image: ricardoyalico/glossy-backend:v1.0.2
+    image: ricardoyalico/glossy-backend:v1.0.3
     container_name: glossy-backend
     restart: unless-stopped
 
