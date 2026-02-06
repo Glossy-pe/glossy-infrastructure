@@ -1,6 +1,15 @@
 version: "3.9"
 
 services:
+  frontend-service:
+    image: ricardoyalico/glossy-frontend:latest
+    container_name: glossy-frontend
+    restart: unless-stopped
+    ports:
+      - "4200:80"
+    networks:
+      - glossy-net
+
   images-service:
     image: ricardoyalico/glossy-images:latest   # 👈 versión fija
     container_name: glossy-images
