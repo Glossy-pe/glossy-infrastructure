@@ -75,7 +75,6 @@ services:
       container_name: glossy-cloudflared
       restart: unless-stopped
 
-      # Forzar HTTP/2 para evitar problemas con QUIC
       command: tunnel --protocol http2 run
       
       extra_hosts:
@@ -84,7 +83,6 @@ services:
       environment:
         - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
 
-      # Configurar DNS para resolver correctamente las regiones de Cloudflare
       dns:
         - 1.1.1.1
         - 1.0.0.1
@@ -104,7 +102,6 @@ services:
       networks:
         - glossy-net
 
-      # Opcional: limitar logs
       logging:
         driver: "json-file"
         options:
