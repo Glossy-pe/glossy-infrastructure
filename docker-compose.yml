@@ -82,6 +82,12 @@ services:
     environment:
       - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
 
+    cap_add:
+      - NET_ADMIN
+    sysctls:
+      - net.core.rmem_max=7500000
+      - net.core.wmem_max=7500000
+      
     depends_on:
       - images-service
 
