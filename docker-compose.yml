@@ -75,7 +75,7 @@ services:
     container_name: glossy-cloudflared
     restart: unless-stopped
 
-    command: tunnel --no-autoupdate run --protocol http2
+    command: tunnel run --protocol http2
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
