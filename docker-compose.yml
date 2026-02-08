@@ -74,7 +74,6 @@ services:
     image: cloudflare/cloudflared:latest
     container_name: glossy-cloudflared
     restart: unless-stopped
-    network_mode: "host"  # 👈 Usa la red del host directamente
     
     command: tunnel run --protocol http2
     
@@ -83,6 +82,9 @@ services:
     
     depends_on:
       - images-service
+
+    networks:
+      - glossy-net
 
 volumes:
   postgres_data:
