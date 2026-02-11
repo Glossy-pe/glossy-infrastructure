@@ -50,6 +50,29 @@ services:
     #   SPRING_DATASOURCE_USERNAME: postgres
     #   SPRING_DATASOURCE_PASSWORD: postgres
 
+  oauth2-service:
+    image: ricardoyalico/glossy-oauth2:latest
+    container_name: glossy-oauth2
+    restart: unless-stopped
+
+    ports:
+      - "9000:9000"
+
+    env_file:
+      - .env
+
+    depends_on:
+      - db
+
+    networks:
+      - glossy-net
+
+      
+    # environment:
+    #   SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/glossy-db
+    #   SPRING_DATASOURCE_USERNAME: postgres
+    #   SPRING_DATASOURCE_PASSWORD: postgres
+
   db:
     image: postgres:15
     container_name: glossy-db
