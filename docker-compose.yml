@@ -94,10 +94,13 @@ services:
       - glossy-net
 
   cloudflared:
-    image: cloudflare/cloudflared:2024.8.3
+    image: cloudflare/cloudflared:latest
     container_name: glossy-cloudflared
     restart: unless-stopped
-    command: tunnel --protocol http2 run
+    command: tunnel run
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
     environment:
       - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
     depends_on:
