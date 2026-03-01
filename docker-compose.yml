@@ -27,6 +27,9 @@ services:
     networks:
       - glossy-net
 
+    volumes:
+      - images_data:/app/images
+
   backend-service:
     image: ricardoyalico/glossy-backend:latest
     container_name: glossy-backend
@@ -110,6 +113,7 @@ services:
 
 volumes:
   postgres_data:
+  images_data:
 
 networks:
   glossy-net:
