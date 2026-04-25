@@ -117,6 +117,8 @@ services:
     restart: unless-stopped
     ports:
       - "7700:7700"
+    environment:
+      - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
     volumes:
       - meilisearch_data:/meili_data
     networks:
